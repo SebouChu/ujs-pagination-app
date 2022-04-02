@@ -1,0 +1,22 @@
+<div id="<%= dom_id article %>">
+  <p>
+    <strong>Title:</strong>
+    <%= article.title %>
+  </p>
+
+  <p>
+    <strong>Author:</strong>
+    <%= article.author %>
+  </p>
+
+  <p>
+    <strong>Illustration:</strong>
+    <%= link_to article.illustration.filename, article.illustration if article.illustration.attached? %>
+  </p>
+
+  <p>
+    <strong>Content:</strong>
+    <%= article.content %>
+  </p>
+
+</div>
