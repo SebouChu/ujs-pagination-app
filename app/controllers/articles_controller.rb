@@ -3,7 +3,11 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   def index
-    @articles = Article.all
+    @articles = Article.all.page(params[:page]).per(8)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /articles/1

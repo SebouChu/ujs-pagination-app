@@ -4,10 +4,12 @@
 
 <%= link_to "New article", new_article_path, class: "btn btn-primary mb-3" %>
 
-<div class="row" id="articles">
-  <% @articles.each do |article| %>
-    <div class="col-lg-3 col-md-4 col-sm-2 mb-4">
-      <%= render "articles/article", article: article %>
-    </div>
-  <% end %>
+<div class="row mb-2" id="articles">
+  <%= render "articles/list", articles: @articles %>
 </div>
+
+<%= link_to_next_page @articles,
+                      "Load more (#{remaining_objects(@articles)} articles)",
+                      remote: true,
+                      class: "btn btn-primary",
+                      id: "js-next-page" %>

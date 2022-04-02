@@ -1,0 +1,11 @@
+(() => {
+    const articlesContainer = document.querySelector("#articles")
+    const nextPageBtn = document.querySelector("#js-next-page")
+    articlesContainer.insertAdjacentHTML('beforeend', "<%= j render('articles/list', articles: @articles) %>")
+    <% if @articles.last_page? %>
+        nextPageBtn.remove()
+    <% else %>
+        nextPageBtn.setAttribute("href", "<%= j next_page_path(@articles) %>")
+        nextPageBtn.textContent = "Read more (<%= remaining_objects(@articles) %> articles)"
+    <% end %>
+})()
