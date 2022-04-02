@@ -1,7 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require 'faker'
+
+50.times do
+  article = Article.new(
+    title: Faker::Book.title,
+    author: Faker::Book.author,
+    content: "<div>#{(1..5).map { Faker::Lorem.paragraphs(number: 6).join(' ') }.join('<br>')}</div>"
+  )
+  article.illustration.attach(
+    io: URI.open(Faker::LoremFlickr.image(size: "1280x720")),
+    filename: "#{article.title.parameterize}.jpeg",
+    content_type: 'image/jpeg'
+  )
+  article.save
+end

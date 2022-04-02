@@ -1,22 +1,28 @@
-<div id="<%= dom_id article %>">
-  <p>
-    <strong>Title:</strong>
-    <%= article.title %>
-  </p>
-
-  <p>
-    <strong>Author:</strong>
-    <%= article.author %>
-  </p>
-
-  <p>
-    <strong>Illustration:</strong>
-    <%= link_to article.illustration.filename, article.illustration if article.illustration.attached? %>
-  </p>
-
-  <p>
-    <strong>Content:</strong>
-    <%= article.content %>
-  </p>
-
+<div class="card w-100 h-100">
+  <% if article.illustration.attached? %>
+    <%= image_tag article.illustration, alt: article.title, class: "card-img-top" %>
+  <% else %>
+    <svg  class="bd-placeholder-img card-img-top"
+          width="100%"
+          height="180"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Placeholder: Image cap"
+          preserveAspectRatio="xMidYMid slice"
+          focusable="false">
+      <title>Placeholder</title>
+      <rect width="100%" height="100%" fill="#868E96"></rect>
+      <text x="50%" y="50%" fill="#DEE2E6" dy=".3em">No illustration</text>
+    </svg>
+  <% end %>
+  <div class="card-body d-flex flex-column justify-content-between">
+    <div class="card-infos mb-4">
+      <h5 class="card-title"><%= article.title %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= article.author %></h6>
+      <p class="card-text"><%= truncate article.content.to_plain_text, length: 100 %></p>
+    </div>
+    <div class="card-actions">
+      <%= link_to "Read this article", article, class: "btn btn-sm btn-primary" %>
+    </div>
+  </div>
 </div>
