@@ -1,6 +1,6 @@
 <div class="card w-100 h-100">
   <% if article.illustration.attached? %>
-    <%= image_tag article.illustration, alt: article.title, class: "card-img-top" %>
+    <%= kamifusen_tag article.illustration, alt: article.title, picture_class: "card-img-top", class: "img-fluid" %>
   <% else %>
     <svg  class="bd-placeholder-img card-img-top"
           width="100%"

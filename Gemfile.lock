@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/noesya/kamifusen.git
+  revision: c50ec1dd011b740ebf220c51429a92bedd9525b3
+  branch: fix/vips
+  specs:
+    kamifusen (1.11.2)
+      image_processing
+      rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -235,6 +244,7 @@ DEPENDENCIES
   faker (~> 2.20)
   image_processing (~> 1.2)
   jsbundling-rails
+  kamifusen!
   kaminari (~> 1.2)
   pg (~> 1.1)
   puma (~> 5.0)

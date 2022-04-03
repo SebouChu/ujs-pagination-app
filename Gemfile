@@ -7,6 +7,7 @@ gem "bootsnap", require: false
 gem "cssbundling-rails"
 gem "image_processing", "~> 1.2"
 gem "jsbundling-rails"
+gem "kamifusen", github: "noesya/kamifusen", branch: "fix/vips"
 gem "kaminari", "~> 1.2"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"

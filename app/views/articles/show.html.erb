@@ -11,7 +11,7 @@
 
   <div class="row mt-4">
     <div class="col-md-6">
-      <%= image_tag @article.illustration, alt: @article.title, class: "img-fluid" if @article.illustration.attached? %>
+      <%= kamifusen_tag @article.illustration, alt: @article.title, width: 1280, class: "img-fluid" if @article.illustration.attached? %>
     </div>
     <div class="col-md-6">
       <div class="article__content">
