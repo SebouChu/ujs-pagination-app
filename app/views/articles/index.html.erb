@@ -1,6 +1,8 @@
+<% content_for :title, "Articles (#{@articles.total_count})" %>
+
 <p style="color: green"><%= notice %></p>
 
-<h1>Articles</h1>
+<h1>Articles (<%= @articles.total_count %>)</h1>
 
 <%= link_to "New article", new_article_path, class: "btn btn-primary mb-3" %>
 
@@ -12,6 +14,6 @@
   <%= link_to_next_page @articles,
                         "Load more (#{remaining_objects(@articles)} articles)",
                         remote: true,
-                        class: "btn btn-primary mb-4 d-inline-block mx-auto",
+                        class: "btn btn-primary d-inline-block mx-auto",
                         id: "js-next-page" %>
 </div>
