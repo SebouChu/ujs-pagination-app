@@ -8,8 +8,10 @@
   <%= render "articles/list", articles: @articles %>
 </div>
 
-<%= link_to_next_page @articles,
-                      "Load more (#{remaining_objects(@articles)} articles)",
-                      remote: true,
-                      class: "btn btn-primary",
-                      id: "js-next-page" %>
+<div class="text-center">
+  <%= link_to_next_page @articles,
+                        "Load more (#{remaining_objects(@articles)} articles)",
+                        remote: true,
+                        class: "btn btn-primary mb-4 d-inline-block mx-auto",
+                        id: "js-next-page" %>
+</div>
